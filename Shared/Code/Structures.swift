@@ -46,7 +46,12 @@ enum Days: String {
     case saturday = "SAT"
 }
 
-enum TimeCalculations {
-    case currentPeriod
-    case nextPeriod
+enum NotificationIntervals: String {
+    case oneHour = "One hour"
+    case thirtyMinutes = "Thirty minutes"
+    case fifteenMinutes = "Fifteen minutes"
+    case tenMinutes = "Ten minutes"
+    case fiveMinutes = "Five minutes"
+    case oneMinute = "One minute"
+    case thirtySeconds = "Thirty seconds"
 }
