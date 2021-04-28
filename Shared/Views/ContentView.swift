@@ -13,16 +13,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if !schedules.isEmpty {
-                List(schedules.sorted { $0.id.lowercased() < $1.id.lowercased() }, id: \.self) { schedule in
+                List(schedules.sorted { $0.name.lowercased() < $1.name.lowercased() }, id: \.self) { schedule in
                     NavigationLink(destination: ScheduleView(schedule: schedule)) {
                         Text(schedule.name)
                     }
                 }
-                .listStyle(DefaultListStyle())
+                .modifier(ListStyleModifier())
                 .navigationTitle("Schedules")
             } else {
                 Text("No schedules found")
-                    .navigationTitle("Schedules")
+                .navigationTitle("Schedules")
             }
         }
         .onAppear(perform: {

@@ -13,6 +13,8 @@
 		1211E7F125CDD6BA00691B01 /* schedules.json in Resources */ = {isa = PBXBuildFile; fileRef = 1211E7EF25CDD6BA00691B01 /* schedules.json */; };
 		1211E7FF25CDE19600691B01 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1211E7FE25CDE19600691B01 /* SwiftyJSON */; };
 		1211E80425CDE1AC00691B01 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 1211E80325CDE1AC00691B01 /* SwiftyJSON */; };
+		123E51592639E9290011F982 /* ListStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123E51582639E9290011F982 /* ListStyleModifier.swift */; };
+		123E515C2639EA640011F982 /* ListStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123E515A2639E9AC0011F982 /* ListStyleModifier.swift */; };
 		125879772638B313006ADF35 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125879762638B311006ADF35 /* Color.swift */; };
 		1258798D2638D1AD006ADF35 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258798C2638D1AD006ADF35 /* ScheduleView.swift */; };
 		1258798E2638D1AD006ADF35 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1258798C2638D1AD006ADF35 /* ScheduleView.swift */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		1211E7E825CDD69C00691B01 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		1211E7EF25CDD6BA00691B01 /* schedules.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schedules.json; sourceTree = "<group>"; };
+		123E51582639E9290011F982 /* ListStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleModifier.swift; sourceTree = "<group>"; };
+		123E515A2639E9AC0011F982 /* ListStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleModifier.swift; sourceTree = "<group>"; };
 		125879762638B311006ADF35 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1258798C2638D1AD006ADF35 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		125879912638D7C7006ADF35 /* ScheduleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCard.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 			children = (
 				126208EB25CD566C007E8346 /* Info.plist */,
 				125FF6522632B34D0040AF0F /* Color.swift */,
+				123E51582639E9290011F982 /* ListStyleModifier.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				126208F225CD566C007E8346 /* Info.plist */,
 				126208F325CD566C007E8346 /* macOS.entitlements */,
 				125879762638B311006ADF35 /* Color.swift */,
+				123E515A2639E9AC0011F982 /* ListStyleModifier.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -260,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				123E51592639E9290011F982 /* ListStyleModifier.swift in Sources */,
 				1258798D2638D1AD006ADF35 /* ScheduleView.swift in Sources */,
 				125879A52638E6AB006ADF35 /* Structures.swift in Sources */,
 				126208F625CD566C007E8346 /* ContentView.swift in Sources */,
@@ -276,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				123E515C2639EA640011F982 /* ListStyleModifier.swift in Sources */,
 				1258798E2638D1AD006ADF35 /* ScheduleView.swift in Sources */,
 				125879A62638E6AB006ADF35 /* Structures.swift in Sources */,
 				126208F725CD566C007E8346 /* ContentView.swift in Sources */,

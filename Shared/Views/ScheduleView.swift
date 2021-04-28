@@ -19,6 +19,13 @@ struct ScheduleView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
+            #if os(iOS)
+            Text(schedule.name)
+                .font(.headline)
+                .padding(8)
+                .padding(.bottom, 16)
+            #endif
+            
             ScheduleCard(header: currentPeriodName, content: timeRemaining)
             ScheduleCard(header: nextPeriodName, content: nextPeriodStartingTime)
         }
