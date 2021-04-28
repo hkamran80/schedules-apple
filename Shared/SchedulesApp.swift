@@ -12,6 +12,7 @@ struct SchedulesApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .frame(minWidth: 450, idealWidth: 500, maxWidth: .infinity, minHeight: 250, idealHeight: 250, maxHeight: 500, alignment: .center)
         }
     }
 }

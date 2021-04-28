@@ -13,14 +13,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if !schedules.isEmpty {
-                List(schedules, id: \.self) { schedule in
-                    Text(schedule.name)
+                List(schedules.sorted { $0.id.lowercased() < $1.id.lowercased() }, id: \.self) { schedule in
+                    NavigationLink(destination: ScheduleView(schedule: schedule)) {
+                        Text(schedule.name)
+                    }
                 }
                 .listStyle(DefaultListStyle())
                 .navigationTitle("Schedules")
             } else {
                 Text("No schedules found")
-                .navigationTitle("Schedules")
+                    .navigationTitle("Schedules")
             }
         }
         .onAppear(perform: {
@@ -28,8 +30,6 @@ struct ContentView: View {
                 do {
                     let string = try String(contentsOfFile: filePath)
                     schedules = importSchedule(scheduleData: Data(string.utf8))
-
-                    print(schedules)
                 } catch {
                     print("(Schedules Loading) \(error.localizedDescription)")
                 }
