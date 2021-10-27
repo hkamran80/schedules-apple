@@ -15,12 +15,15 @@ struct ScheduleCard: View {
         VStack(alignment: .leading) {
             Text(header)
                 .font(.subheadline)
-
+            
             Text(content)
                 .font(.largeTitle)
                 .bold()
         }
-        .padding(8)
+        .frame(maxWidth: .infinity, alignment: .leading) /// make the entire block left
+        .padding(16)
+        .background(Color(.systemBackground))
+        .cornerRadius(16)
     }
 }
 
