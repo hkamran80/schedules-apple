@@ -31,7 +31,7 @@ struct ScheduleView: View {
             Spacer()
         }
         .background(Color(.secondarySystemBackground))
-        .navigationTitle(schedule.name.components(separatedBy: " ").first ?? schedule.name) /// prevent cutoff
+        .navigationTitle(schedule.shortName)
         .navigationBarTitleDisplayMode(.inline)
         .onReceive(timer, perform: { _ in
             updateSchedule()
