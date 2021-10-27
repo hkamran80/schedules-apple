@@ -15,7 +15,7 @@ struct SchedulesApp: App {
             ContentView()
                 .frame(minWidth: 450, idealWidth: 500, maxWidth: .infinity, minHeight: 250, idealHeight: 250, maxHeight: 500, alignment: .center)
 #elseif os(iOS)
-//            ContentView()
+            ContentView()
 #endif
         }
     }

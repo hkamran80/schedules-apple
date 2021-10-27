@@ -21,12 +21,18 @@ struct ScheduleView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        VStack(alignment: .leading) {
-            ScheduleCard(header: currentPeriodName, content: timeRemaining)
-            ScheduleCard(header: nextPeriodName, content: nextPeriodStartingTime)
+        VStack {
+            VStack(spacing: 16) {
+                ScheduleCard(header: currentPeriodName, content: timeRemaining)
+                ScheduleCard(header: nextPeriodName, content: nextPeriodStartingTime)
+            }
+            .padding(16)
+            
+            Spacer()
         }
-        .frame(maxWidth: .infinity)
-        .navigationTitle(schedule.name)
+        .background(Color(.secondarySystemBackground))
+        .navigationTitle(schedule.name.components(separatedBy: " ").first ?? schedule.name) /// prevent cutoff
+        .navigationBarTitleDisplayMode(.inline)
         .onReceive(timer, perform: { _ in
             updateSchedule()
         })
