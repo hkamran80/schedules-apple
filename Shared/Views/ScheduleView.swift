@@ -42,8 +42,10 @@ struct ScheduleView: View {
     func updateSchedule() {
         if let currentPeriod = getCurrentPeriod(schedule: schedule.schedule) {
             currentPeriodName = currentPeriod.name
-
-            let (tdHour, tdMinute, tdSecond) = calculateTimeDifference(startTimeString: getSplitTime(), endTimeString: currentPeriod.endTime)
+            
+            let currentTimeComponents = Date().keepOnlyTime()
+            let (tdHour, tdMinute, tdSecond) = calculateTimeDifference(startTimeComponents: currentTimeComponents, endTimeComponents: currentPeriod.endTimeComponents)
+            
             if let hour = tdHour, let minute = tdMinute, let second = tdSecond {
                 timeRemaining = "\(String(format: "%02d", hour)):\(String(format: "%02d", minute)):\(String(format: "%02d", second))"
 
@@ -77,7 +79,18 @@ struct ScheduleView: View {
 
         if let nextPeriod = getNextPeriod(schedule: schedule.schedule) {
             nextPeriodName = nextPeriod.name
-            nextPeriodStartingTime = nextPeriod.startTime.format(template: "HH-mm-ss")?.format(template: is24Hour() ? "HH:mm" : "h:mm a") ?? "00:00"
+            
+            let dateFormatter = DateFormatter()
+            if is24Hour() {
+                dateFormatter.dateFormat = "h:mm a"
+            } else {
+                dateFormatter.dateFormat = "HH:mm"
+            }
+            
+            if let nextPeriodStartDate = Calendar.current.date(from: nextPeriod.startTimeComponents) {
+                let nextPeriodStartingTimeString = dateFormatter.string(from: nextPeriodStartDate)
+                nextPeriodStartingTime = nextPeriodStartingTimeString
+            }
         }
     }
 
@@ -108,7 +121,27 @@ struct ScheduleView: View {
 #if DEBUG
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView(schedule: Schedule(id: "sch-demo-abc", name: "Demo Schedule", shortName: "Demo", icon: "mdiTestTube", color: "#13323C", schedule: [Day(day: .monday, periods: [Period(name: "Demo Period I", startTime: "08-30-00", endTime: "15-20-00")])]))
+        ScheduleView(
+            schedule: Schedule(
+                id: "sch-demo-abc",
+                name: "Demo Schedule",
+                shortName: "Demo",
+                icon: "mdiTestTube",
+                color: "#13323C",
+                schedule: [
+                    Day(
+                        day: .monday,
+                        periods: [
+                            Period(
+                                name: "Demo Period I",
+                                startTimeComponents: DateComponents(hour: 8, minute: 30),
+                                endTimeComponents: DateComponents(hour: 15, minute: 20)
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
     }
 }
 #endif
