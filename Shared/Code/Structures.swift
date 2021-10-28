@@ -30,8 +30,8 @@ struct Day: Hashable {
 
 struct Period: Hashable {
     let name: String
-    let startTime: String
-    let endTime: String
+    let startTimeComponents: DateComponents
+    let endTimeComponents: DateComponents
 }
 
 // MARK: - Enumerations

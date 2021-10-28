@@ -7,6 +7,17 @@
 
 import Foundation
 
+
+extension Date {
+    
+    /// only keep hour, min, sec
+    func keepOnlyTime() -> DateComponents {
+        let timeComponents = Calendar.current.dateComponents([.hour, .minute, .second], from: self)
+        return timeComponents
+    }
+}
+
+
 func getCurrentDay() -> Days? {
     let date = Date()
     let formatter = DateFormatter()
@@ -20,23 +31,10 @@ func getCurrentDay() -> Days? {
     }
 }
 
-func getSplitTime() -> String {
-    let date = Date()
-    let formatter = DateFormatter()
-
-    formatter.dateFormat = "HH-mm-ss"
-    return formatter.string(from: date)
-}
-
-func calculateTimeDifference(startTimeString: String, endTimeString: String) -> (hour: Int?, minute: Int?, second: Int?) {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "HH-mm-ss"
-
-    if let startTime = formatter.date(from: startTimeString), let endTime = formatter.date(from: endTimeString) {
-        return endTime - startTime
-    } else {
-        return (nil, nil, nil)
-    }
+/// difference between 2 date components
+func calculateTimeDifference(startTimeComponents: DateComponents, endTimeComponents: DateComponents) -> (hour: Int?, minute: Int?, second: Int?) {
+    let difference = Calendar.current.dateComponents([.hour, .minute, .second], from: startTimeComponents, to: endTimeComponents)
+    return (difference.hour, difference.minute, difference.second)
 }
 
 func is24Hour() -> Bool {
